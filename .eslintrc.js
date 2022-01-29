@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'airbnb-base',
+    'airbnb-typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -15,5 +15,12 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };
