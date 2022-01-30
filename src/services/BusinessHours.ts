@@ -126,6 +126,11 @@ export class BusinessHours {
   static getNumberOfBusinessHours = (start:string, end:string):number => {
     const endDate = new Date( end );
     const startDate = new Date( start );
+
+    if ( isNaN(startDate.getTime()) || isNaN(endDate.getTime()) ) {
+      throw new Error( 'Invalid dates');
+    }
+
     const earliestStartDate = BusinessHours.getEarliestStartDate( startDate );
     const latestEndDate = BusinessHours.getLatestEndDate( endDate );
  
